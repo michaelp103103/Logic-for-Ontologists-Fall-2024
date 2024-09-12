@@ -1,0 +1,80 @@
+\documentclass{article}
+
+% \usepackage{microtype}
+\usepackage{mathpartir}
+% \usepackage{xspace}
+% \usepackage{xparse}
+% \usepackage{mathtools}
+% \usepackage{scalerel}
+% \usepackage{suffix}
+% \usepackage{enumitem}
+
+% \let\Bbbk\relax % Apparently amssymb defines \Bbbk and so does newtxmath, which acmart requires.
+% \usepackage{amsmath,amsthm,amssymb}
+
+\def\code#1{\texttt{#1}}
+
+\begin{document}
+  \section{Project 1: Part 1}
+  \subsection{$X^{UNSAT}$ Results}
+  \subsubsection{Asymm. and Symm.}
+
+  Let us assume that it is possible for an object property $R$ to be constrained by both Asymmetry and Symmetry.
+  Assume that $(x, y) \in R$.
+  By Symmetry, this means that $(y, x) \in R$.
+  By Asymmetry, this means that $(y, x) \not \in R$; however, we just stated that $(y, x) \in R$, so we have a contradiction.
+
+  \subsubsection{Ref. and Asymm.}
+
+  Let us assume that it is possible for an object property $R$ to be constrained by both Reflexivity and Asymmetry.
+  By Reflexivity, this means that $(x, x) \in R$ for any $x$.
+  So, let us assume that $(x, x) \in R$ for some arbitrary $x$.
+  Asymmetry states that if $(y, z) \in R$, then $(y, z) \not \in R$ for any $y$ and $z$.
+  Applying this to our assumption that $(x, x) \in R$ gives us the conclusion that $(x, x) \not \in R$, so we have a contradiction.
+
+  \subsubsection{Irref. and Ref.}
+
+  Let us assume that it is possible for an object property $R$ to be constrained by both Irreflexivity and Reflexivity.
+  Reflexivity says that $(x, x) \in R$ for any $x$, so assume that $(x, x) \in R$ for some arbitrary $x$.
+  Irreflexivity, on the other hand, states that $(y, y) \not \in R$ for all $y$.
+  From this, it follows that $(x, x) \not \in R$, but we already stated that $(x, x) \in R$, so we have a contradiction.
+
+  \subsection{$X^{NS}$ Results}
+  \subsubsection{Trans. and Funct.}
+
+  % To show that the Transitive and Functional constraints together may lead to undecidability, let us suppose that we have the object properties \code{hasFather} and \code{hasFatherOrSelf}, as well as the class \code{Person}.
+  % \code{hasFather} has a domain and range of \code{Person} and is constrained by the Transitivity and Functional constraints.
+  % \code{hasFather} relates a person to their biological father--e.g., \code{Mike~hasFather~Jack} if individual \code{Jack} is the biological father of \code{Mike}.
+
+  % Now, $\code{hasFather}~\sqsubseteq~\code{hasFatherOrSelf}$ and \code{hasFatherOrSelf} is the same as \code{hasFather}, except that it also relates every individual in \code{Person} to itself.
+
+  % Now consider the following object property chain:
+  % \begin{mathpar}
+  %   \code{hasFather} \circ \code{hasFatherOrSelf} \circ \code{hasFather} \sqsubseteq \code{hasFather}
+  % \end{mathpar}
+
+  % This object property chain does not exhibit a strict partial order, so it may result in undecidability.  
+
+  \subsubsection{Trans. and iFunct.}
+
+  
+
+  \subsubsection{Trans. and Asymm.}
+
+  To show that the Transitive and Asymmetric constraints together may lead to undecidability, let us suppose that we have the object properties \code{descendantOf} and \code{descendantOfOrSelf}, as well as the class \code{Person}.
+  \code{descendantOf} has a domain and range of \code{Person} and is constrained by the Transitive and Asymmetric constraints.
+  
+  Now, $\code{descendantOf}~\sqsubseteq~\code{descendantOfOrSelf}$ and \code{descendantOfOrSelf} is identical to \code{descendantOf}, except that it also relates every individual in \code{Person} to itself.
+
+  Now consider the following object property chain:
+  \begin{mathpar}
+    \code{descendantOf} \circ \code{descendantOfOrSelf} \circ \code{descendantOf} \sqsubseteq \code{descendantOf}
+  \end{mathpar}
+
+  This object property chain does not exhibit a strict partial order, so it may result in undecidability.
+
+  \subsubsection{Trans. and Irref.}
+
+  The previous example also works for this case, except that \code{descendantOf} is constrained by Transitivity and Irreflexivity.
+
+\end{document}
